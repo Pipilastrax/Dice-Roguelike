@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://brk48n8obh3mr"]
+
+[ext_resource type="Texture2D" uid="uid://8up5qqcrrqrc" path="res://Sprites/green background.jpg" id="1_8ihyh"]
+[ext_resource type="Script" path="res://Scripts/playing_table.gd" id="1_nu7hj"]
+[ext_resource type="PackedScene" uid="uid://dhk5hp2u3sqjj" path="res://Scenes/player.tscn" id="3_ikklq"]
+
+[node name="Playing_table" type="Node2D"]
+script = ExtResource("1_nu7hj")
+
+[node name="GreenBackground" type="Sprite2D" parent="."]
+position = Vector2(569.848, 350)
+scale = Vector2(4.4811, 4.32445)
+texture = ExtResource("1_8ihyh")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="HUD"]
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.031
+offset_left = 26.0
+offset_top = 422.0
+offset_right = 108.68
+offset_bottom = 606.912
+
+[node name="Roll_button" type="Button" parent="HUD/Panel"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 152.0
+offset_right = 91.0
+offset_bottom = 183.0
+text = "Roll"
+
+[node name="Reroll_button" type="Button" parent="HUD/Panel"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 152.0
+offset_right = 90.0
+offset_bottom = 183.0
+text = "Reroll"
+
+[node name="Attacks_label" type="Label" parent="HUD/Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 25.0
+offset_right = 72.0
+offset_bottom = 48.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rerolls_label" type="Label" parent="HUD/Panel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 83.0
+offset_right = 71.0
+offset_bottom = 106.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="HUD"]
+offset_left = 960.0
+offset_top = 39.0
+offset_right = 1094.0
+offset_bottom = 114.0
+
+[node name="Score_label" type="Label" parent="HUD/Panel2"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 28.0
+offset_right = 100.0
+offset_bottom = 51.0
+
+[node name="Total_score" type="Label" parent="HUD/Panel2"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 4.0
+offset_right = 121.0
+offset_bottom = 27.0
+text = "TOTAL SCORE"
+
+[node name="Player" parent="." instance=ExtResource("3_ikklq")]
+dice = 3
+rerolls = 3
+attacks = 3
+
+[connection signal="button_down" from="HUD/Panel/Roll_button" to="." method="_on_roll_button_button_down"]
