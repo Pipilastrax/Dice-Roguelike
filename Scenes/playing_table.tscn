@@ -78,6 +78,20 @@ offset_right = 121.0
 offset_bottom = 27.0
 text = "TOTAL SCORE"
 
+[node name="Attack_panel" type="Panel" parent="HUD"]
+offset_left = 26.0
+offset_top = 348.0
+offset_right = 147.0
+offset_bottom = 388.0
+
+[node name="Attack_buttton" type="Button" parent="HUD/Attack_panel"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 5.0
+offset_right = 94.0
+offset_bottom = 36.0
+text = "ATTACK"
+
 [node name="Player" parent="." instance=ExtResource("3_ikklq")]
 dice = 3
 rerolls = 3

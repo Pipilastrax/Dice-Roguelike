@@ -4,6 +4,8 @@ extends Node2D
 @onready var reroll_button = $HUD/Panel/Reroll_button
 @onready var attacks_label = $HUD/Panel/Attacks_label
 @onready var rerolls_label = $HUD/Panel/Rerolls_label
+@onready var attack_panel = $HUD/Attack_panel
+@onready var attack_button = $HUD/Attack_panel/Attack_buttton
 var dice = preload("res://Scenes/dice.tscn") 
 var boss = preload("res://Scenes/boss.tscn")
 var total_score = 0
@@ -12,6 +14,7 @@ var reroll_button_check :bool = false
 
 func _ready() -> void:
 	reroll_button.hide()
+	attack_button.disabled = true
 	spawn_dice()
 
 func _physics_process(delta: float) -> void:
@@ -22,7 +25,6 @@ func _physics_process(delta: float) -> void:
 	if $Player.attacks < 1:
 		roll_button.disabled =true
 	
-
 #clicking of roll buton rolls the dice and adds the total of each dice 
 func _on_roll_button_button_down() -> void:
 	roll_button.disabled = true
@@ -34,6 +36,7 @@ func _on_roll_button_button_down() -> void:
 			await get_tree().create_timer(0.5).timeout
 	#Hide roll button and await for rerolls
 	roll_button.hide()
+	attack_button.disabled = false
 	while $Player.rerolls > 0:
 		await reroll()
 		for node in $Player.get_children():
@@ -83,7 +86,6 @@ func scoring():
 	
 func damage():
 	$Player.attacks -= 1
-	get_node
 	
 	
 	
@@ -106,3 +108,6 @@ func update_dice_position():
 			node.position.x = 200 + (80*i)
 			node.position.y = 600
 			i+=1
+
+func _on_attack_button_button_down():
+	pass
