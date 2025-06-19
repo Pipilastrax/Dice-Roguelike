@@ -6,6 +6,8 @@ extends Node2D
 @onready var rerolls_label = $HUD/Panel/Rerolls_label
 @onready var attack_panel = $HUD/Attack_panel
 @onready var attack_button = $HUD/Attack_panel/Attack_buttton
+@onready var boss_name = $HUD/Boss_stats/Boss_name
+@onready var boss_hp_tag = $HUD/Boss_stats/Boss_hp
 @onready var boss = preload("res://Scenes/boss.tscn")
 var dice = preload("res://Scenes/dice.tscn") 
 var boss_hp : float
@@ -18,11 +20,13 @@ func _ready() -> void:
 	attack_button.disabled = true
 	spawn_dice()
 	spawn_boss()
-	boss_hp = get_node("Boss").hp
+	
+	boss_name = $Boss.name
 	
 
-func _physics_process(delta: float) -> void:
-	#update the score into the score tag
+func _process(delta: float) -> void:
+	#update the score and stats into the score tag
+	boss_hp_tag.text = str($Boss.hp) + " HP"
 	score_tag.text = str(total_score)
 	attacks_label.text = "You have\n" + str($Player.attacks) + " attacks"
 	rerolls_label.text = "You have\n" + str($Player.rerolls) + " rerolls"
@@ -89,6 +93,7 @@ func damage():
 	$Boss.hp = $Boss.hp - total_score
 	print("Attacked")
 	print("Boss hp is "+ str($Boss.hp))
+
 func spawn_dice():
 	var i = 0
 	for n in get_node("Player").dice:
@@ -100,13 +105,15 @@ func spawn_dice():
 		new_dice.maxdice = 6
 		i+=1
 		print("added dice")
-		
+
 func spawn_boss():
 	var boss_spawn = boss.instantiate()
 	$".".add_child(boss_spawn)
 	boss_spawn.name="Boss"
 	print("Boss spawned")
 	print(boss_spawn.hp)
+	
+
 func update_dice_position():
 	var i = 0
 	var player = get_node("Player")
