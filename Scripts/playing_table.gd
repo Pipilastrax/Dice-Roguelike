@@ -6,8 +6,9 @@ extends Node2D
 @onready var rerolls_label = $HUD/Panel/Rerolls_label
 @onready var attack_panel = $HUD/Attack_panel
 @onready var attack_button = $HUD/Attack_panel/Attack_buttton
+@onready var boss = preload("res://Scenes/boss.tscn")
 var dice = preload("res://Scenes/dice.tscn") 
-var boss = preload("res://Scenes/boss.tscn")
+var boss_hp : float
 var total_score = 0
 var stake = 1
 var reroll_button_check :bool = false
@@ -16,6 +17,9 @@ func _ready() -> void:
 	reroll_button.hide()
 	attack_button.disabled = true
 	spawn_dice()
+	spawn_boss()
+	boss_hp = get_node("Boss").hp
+	
 
 func _physics_process(delta: float) -> void:
 	#update the score into the score tag
@@ -23,54 +27,50 @@ func _physics_process(delta: float) -> void:
 	attacks_label.text = "You have\n" + str($Player.attacks) + " attacks"
 	rerolls_label.text = "You have\n" + str($Player.rerolls) + " rerolls"
 	if $Player.attacks < 1:
-		roll_button.disabled =true
+		attack_button.disabled = true
+	if $Player.rerolls < 1:
+		roll_button.disabled = true
+	
 	
 #clicking of roll buton rolls the dice and adds the total of each dice 
 func _on_roll_button_button_down() -> void:
 	roll_button.disabled = true
+	roll_button.hide()
 	total_score = 0
+	$Roll_sound.play()
 	for node in $Player.get_children():
 		if node.is_in_group("Dice"):
 			print("Rolling dice")
 			node.roll()
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(0.3).timeout
 	#Hide roll button and await for rerolls
 	roll_button.hide()
 	attack_button.disabled = false
-	while $Player.rerolls > 0:
-		await reroll()
-		for node in $Player.get_children():
-			if node.is_in_group("Dice"):
-				node.get_node("Area2D").hide()
-		$Player.rerolls -= 1
+	scoring()
+	reroll_button.show()
 		
 		
-		
-	await scoring()
-	#cleanup
 	for node in $Player.get_children():
 		if node.is_in_group("Dice"):
-			node.get_node("Area2D").hide()
-	await damage()
+			node.get_node("Area2D").show()	
+	#cleanup
+	#for node in $Player.get_children():
+		#if node.is_in_group("Dice"):
+			#node.get_node("Area2D").hide()
 	update_dice_position()
 	roll_button.disabled = false
 
 func reroll():
-	
-	reroll_button.show()
 	print("Rerolling")
-	#allow the dice to be clicked
-	for node in $Player.get_children():
-		if node.is_in_group("Dice"):
-			node.get_node("Area2D").show()
-	
-	await reroll_button.button_down
+	$Roll_sound.play()
 	reroll_button.disabled = true
-	#roll the clicked dice	
+	$Player.rerolls -= 1
+		#roll the clicked dice	
 	for node in $Player.get_children():
 		if node.is_in_group("Dice"):
 			if node.reroll:
 				node.roll()
+	scoring()	
 	
 	
 	if $Player.rerolls > 0:
@@ -79,16 +79,16 @@ func reroll():
 		reroll_button.hide()
 	
 func scoring():
+	total_score = 0
 	for node in $Player.get_children():
 		if node.is_in_group("Dice"):
 			total_score += node.value
-	roll_button.show()
 	
 func damage():
 	$Player.attacks -= 1
-	
-	
-	
+	$Boss.hp = $Boss.hp - total_score
+	print("Attacked")
+	print("Boss hp is "+ str($Boss.hp))
 func spawn_dice():
 	var i = 0
 	for n in get_node("Player").dice:
@@ -96,10 +96,17 @@ func spawn_dice():
 		get_node("Player").add_child(new_dice)
 		new_dice.position.x = 200 + (80*i)
 		new_dice.position.y = 600
+		new_dice.mindice = 1
+		new_dice.maxdice = 6
 		i+=1
 		print("added dice")
 		
-
+func spawn_boss():
+	var boss_spawn = boss.instantiate()
+	$".".add_child(boss_spawn)
+	boss_spawn.name="Boss"
+	print("Boss spawned")
+	print(boss_spawn.hp)
 func update_dice_position():
 	var i = 0
 	var player = get_node("Player")
@@ -109,5 +116,8 @@ func update_dice_position():
 			node.position.y = 600
 			i+=1
 
-func _on_attack_button_button_down():
-	pass
+func _on_attack_buttton_button_down() -> void:
+	damage()
+	
+func _on_reroll_button_button_down() -> void:
+	reroll()
