@@ -32,10 +32,7 @@ func _process(delta: float) -> void:
 	rerolls_label.text = "You have\n" + str($Player.rerolls) + " rerolls"
 	if $Player.attacks < 1:
 		attack_button.disabled = true
-	if $Player.rerolls < 1:
 		roll_button.disabled = true
-	
-	
 #clicking of roll buton rolls the dice and adds the total of each dice 
 func _on_roll_button_button_down() -> void:
 	roll_button.disabled = true
@@ -124,7 +121,19 @@ func update_dice_position():
 			i+=1
 
 func _on_attack_buttton_button_down() -> void:
+	attack_button.disabled = true
 	damage()
+	roll_button.show()
+	reroll_button.hide()
+	if $Boss.hp <= 0:
+		boss_defeated()
+	if $Player.rerolls < 1 && $Boss.hp > 0:
+		boss_not_defeated()
 	
 func _on_reroll_button_button_down() -> void:
 	reroll()
+func boss_defeated():
+	print("Boss defeated")
+	pass
+func boss_not_defeated():
+	print("Boss not defeated")
