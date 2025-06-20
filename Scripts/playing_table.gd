@@ -33,6 +33,8 @@ func _process(delta: float) -> void:
 	if $Player.attacks < 1:
 		attack_button.disabled = true
 		roll_button.disabled = true
+	
+	
 #clicking of roll buton rolls the dice and adds the total of each dice 
 func _on_roll_button_button_down() -> void:
 	roll_button.disabled = true
@@ -129,7 +131,6 @@ func _on_attack_buttton_button_down() -> void:
 		boss_defeated()
 	if $Player.rerolls < 1 && $Boss.hp > 0:
 		boss_not_defeated()
-	
 func _on_reroll_button_button_down() -> void:
 	reroll()
 func boss_defeated():

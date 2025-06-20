@@ -8,6 +8,7 @@ func _ready() -> void:
 	$AnimatedSprite2D.animation = "default"
 	$AnimatedSprite2D.frame=mindice - 1
 	
+	
 
 	
 func roll():
@@ -19,6 +20,7 @@ func roll():
 	$AnimatedSprite2D.stop()
 	$AnimatedSprite2D.frame = value - 1
 	print("the new value is "+ str(value))
+	
 	
 func select():
 	reroll = true
