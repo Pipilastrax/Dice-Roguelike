@@ -116,4 +116,12 @@ shape = SubResource("RectangleShape2D_gers8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1np4b")
 
+[node name="hover" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hover"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_gers8")
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="hover" to="." method="_on_hover_mouse_entered"]
+[connection signal="mouse_exited" from="hover" to="." method="_on_hover_mouse_exited"]

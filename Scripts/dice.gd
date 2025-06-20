@@ -3,13 +3,16 @@ var value :int
 var reroll :bool = false
 var mindice :int
 var maxdice :int
+
 func _ready() -> void:
 	$Area2D.hide()
 	$AnimatedSprite2D.animation = "default"
 	$AnimatedSprite2D.frame=mindice - 1
 	
 	
-
+func shake():
+	print("shaking")
+	pass
 	
 func roll():
 	reroll = false
@@ -43,3 +46,14 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		await get_tree().create_timer(0.3).timeout
 		$Area2D.show()
 		
+
+
+
+func _on_hover_mouse_entered() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property($AnimatedSprite2D,"rotation",0.2,0.1)
+
+
+func _on_hover_mouse_exited() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property($AnimatedSprite2D,"rotation",0,0.1)
