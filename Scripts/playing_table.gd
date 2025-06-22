@@ -21,7 +21,7 @@ func _ready() -> void:
 	spawn_dice()
 	spawn_boss()
 	
-	boss_name = $Boss.name
+	boss_name = $Boss.boss_name
 	
 
 func _process(delta: float) -> void:
