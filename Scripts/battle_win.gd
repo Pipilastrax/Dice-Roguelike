@@ -1,6 +1,7 @@
 extends Control
 signal goto_shop
-@onready var msm_manager = $ms_mmanager
+#TODO fix this var
+#@onready var msm_manager = get_tree().get_node("ms_mmanager")
 func _ready() -> void:
 	$Panel/Label.text = "Congrats, goto shop"
 	pass
