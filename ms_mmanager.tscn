@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://msihu0cy6r64"]
-
-[ext_resource type="PackedScene" uid="uid://brk48n8obh3mr" path="res://Scenes/playing_table.tscn" id="1_exyf3"]
-
-[node name="MSMmanager" type="Node2D"]
-
-[node name="Playing_table" parent="." instance=ExtResource("1_exyf3")]
