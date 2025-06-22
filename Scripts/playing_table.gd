@@ -9,6 +9,7 @@ extends Node2D
 @onready var boss_name = $HUD/Boss_stats/Boss_name
 @onready var boss_hp_tag = $HUD/Boss_stats/Boss_hp
 @onready var boss = preload("res://Scenes/boss.tscn")
+signal boss_defeated_signal
 var dice = preload("res://Scenes/dice.tscn") 
 var boss_hp : float
 var total_score = 0
@@ -21,11 +22,12 @@ func _ready() -> void:
 	spawn_dice()
 	spawn_boss()
 	
-	boss_name = $Boss.boss_name
+	
 	
 
 func _process(delta: float) -> void:
 	#update the score and stats into the score tag
+	boss_name = $Boss.boss_name
 	boss_hp_tag.text = str($Boss.hp) + " HP"
 	score_tag.text = str(total_score)
 	attacks_label.text = "You have\n" + str($Player.attacks) + " attacks"
@@ -56,10 +58,6 @@ func _on_roll_button_button_down() -> void:
 	for node in $Player.get_children():
 		if node.is_in_group("Dice"):
 			node.get_node("Area2D").show()	
-	#cleanup
-	#for node in $Player.get_children():
-		#if node.is_in_group("Dice"):
-			#node.get_node("Area2D").hide()
 	update_dice_position()
 	roll_button.disabled = false
 
@@ -134,6 +132,7 @@ func _on_attack_buttton_button_down() -> void:
 func _on_reroll_button_button_down() -> void:
 	reroll()
 func boss_defeated():
+	boss_defeated_signal.emit()
 	print("Boss defeated")
 	pass
 func boss_not_defeated():
