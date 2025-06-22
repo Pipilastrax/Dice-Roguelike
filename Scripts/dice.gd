@@ -33,7 +33,7 @@ func unselect():
 	$AnimatedSprite2D.animation = "default"
 	$AnimatedSprite2D.frame = value - 1	
 
-
+#select and unselect dice for rolling
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("left_click"):
 		$Area2D.hide()
@@ -46,7 +46,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		
 
 
-
+#movement and sound of the dice when hovered
 func _on_hover_mouse_entered() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property($AnimatedSprite2D,"rotation",0.2,0.1)

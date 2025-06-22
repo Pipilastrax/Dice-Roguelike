@@ -19,6 +19,7 @@ var reroll_button_check :bool = false
 func _ready() -> void:
 	reroll_button.hide()
 	attack_button.disabled = true
+	$HUD/battle_win.hide()
 	spawn_dice()
 	spawn_boss()
 	
@@ -133,6 +134,7 @@ func _on_reroll_button_button_down() -> void:
 	reroll()
 func boss_defeated():
 	boss_defeated_signal.emit()
+	$HUD/battle_win.show()
 	print("Boss defeated")
 	pass
 func boss_not_defeated():

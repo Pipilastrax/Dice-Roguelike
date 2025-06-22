@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://brk48n8obh3mr"]
+[gd_scene load_steps=6 format=3 uid="uid://brk48n8obh3mr"]
 
 [ext_resource type="Texture2D" uid="uid://8up5qqcrrqrc" path="res://Sprites/green background.jpg" id="1_8ihyh"]
 [ext_resource type="Script" uid="uid://dstu45sbldkai" path="res://Scripts/playing_table.gd" id="1_nu7hj"]
+[ext_resource type="PackedScene" uid="uid://co4u0rkygdxmt" path="res://Scenes/battle_win.tscn" id="3_gkcq7"]
 [ext_resource type="PackedScene" uid="uid://dhk5hp2u3sqjj" path="res://Scenes/player.tscn" id="3_ikklq"]
 [ext_resource type="AudioStream" uid="uid://bpps0imumol4l" path="res://Sounds/dice_roll.mp3" id="4_ku04f"]
 
@@ -117,6 +118,8 @@ offset_bottom = 71.0
 text = "bosshp"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="battle_win" parent="HUD" instance=ExtResource("3_gkcq7")]
 
 [node name="Player" parent="." instance=ExtResource("3_ikklq")]
 dice = 3

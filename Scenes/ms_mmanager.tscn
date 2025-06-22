@@ -9,9 +9,12 @@
 script = ExtResource("1_nq07d")
 
 [node name="Main_menu" parent="." instance=ExtResource("2_2uelc")]
+visible = false
 
 [node name="Shop" parent="." instance=ExtResource("3_iux1q")]
+visible = false
 
 [node name="Playing_table" parent="." instance=ExtResource("2_q8twt")]
+visible = false
 
 [connection signal="boss_defeated_signal" from="Playing_table" to="." method="_on_playing_table_boss_defeated_signal"]

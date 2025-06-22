@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dice Roguelike"
-run/main_scene="res://Scenes/playing_table.tscn"
+run/main_scene="uid://msihu0cy6r64"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://Sprites/icon.svg"
 

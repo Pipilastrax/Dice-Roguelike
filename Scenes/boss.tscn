@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://cd8ly6e3ej3fu" path="res://Scripts/boss.gd" id="1_e4xme"]
 
 [node name="Boss" type="Node2D"]
+visible = false
 script = ExtResource("1_e4xme")
