@@ -28,7 +28,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	#update the score and stats into the score tag
-	boss_name = $Boss.boss_name
+	$HUD/Boss_stats/Boss_name.text = $Boss.boss_name
 	boss_hp_tag.text = str($Boss.hp) + " HP"
 	score_tag.text = str(total_score)
 	attacks_label.text = "You have\n" + str($Player.attacks) + " attacks"
