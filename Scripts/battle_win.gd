@@ -4,7 +4,6 @@ signal goto_shop
 #@onready var msm_manager = get_tree().get_node("ms_mmanager")
 func _ready() -> void:
 	$Panel/Label.text = "Congrats, goto shop"
-	pass
 
 
 func _on_continue_button_button_down() -> void:

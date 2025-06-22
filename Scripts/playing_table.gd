@@ -8,6 +8,7 @@ extends Node2D
 @onready var attack_button = $HUD/Attack_panel/Attack_buttton
 @onready var boss_name = $HUD/Boss_stats/Boss_name
 @onready var boss_hp_tag = $HUD/Boss_stats/Boss_hp
+@onready var battle_win = preload("res://Scenes/battle_win.tscn")
 @onready var boss = preload("res://Scenes/boss.tscn")
 signal boss_defeated_signal
 var dice = preload("res://Scenes/dice.tscn") 
@@ -19,7 +20,6 @@ var reroll_button_check :bool = false
 func _ready() -> void:
 	reroll_button.hide()
 	attack_button.disabled = true
-	$HUD/battle_win.hide()
 	spawn_dice()
 	spawn_boss()
 	
@@ -134,8 +134,10 @@ func _on_reroll_button_button_down() -> void:
 	reroll()
 func boss_defeated():
 	boss_defeated_signal.emit()
-	$HUD/battle_win.show()
+	var battle_win_instance = battle_win.instantiate()
+	battle_win_instance.name = "battle_win_instance"
+	$".".add_child(battle_win_instance)
 	print("Boss defeated")
-	pass
+	
 func boss_not_defeated():
 	print("Boss not defeated")
