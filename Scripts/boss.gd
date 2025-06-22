@@ -14,5 +14,5 @@ func _process(delta: float) -> void:
 
 
 func boss_namer():
-	boss_name = boss_first_names[randi() % boss_first_names.size()] + " El " + boss_last_names[randi() % boss_last_names.size()]
+	boss_name = boss_first_names[randi() % boss_first_names.size()] + " el " + boss_last_names[randi() % boss_last_names.size()]
 	

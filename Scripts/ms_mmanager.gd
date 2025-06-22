@@ -15,6 +15,7 @@ func	 _ready() -> void:
 func _on_playing_table_boss_defeated_signal() -> void:
 	#TODO Animation betwwn scenes
 	playing_table_hide()
+	shop_show()
 	#battle_win.goto_shop.connect(_on_battle_win_goto_shop)
 
 func _on_play_button_pressed():

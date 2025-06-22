@@ -11,6 +11,7 @@ extends Node2D
 @onready var battle_win = preload("res://Scenes/battle_win.tscn")
 @onready var boss = preload("res://Scenes/boss.tscn")
 signal boss_defeated_signal
+var is_there_boss :bool = false
 var dice = preload("res://Scenes/dice.tscn") 
 var boss_hp : float
 var total_score = 0
@@ -28,9 +29,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	#update the score and stats into the score tag
-	$HUD/Boss_stats/Boss_name.text = $Boss.boss_name
-	boss_hp_tag.text = str($Boss.hp) + " HP"
-	score_tag.text = str(total_score)
+	if is_there_boss:
+		$HUD/Boss_stats/Boss_name.text = $Boss.boss_name
+		boss_hp_tag.text = str($Boss.hp) + " HP"
+		score_tag.text = str(total_score)
 	attacks_label.text = "You have\n" + str($Player.attacks) + " attacks"
 	rerolls_label.text = "You have\n" + str($Player.rerolls) + " rerolls"
 	if $Player.attacks < 1:
@@ -110,6 +112,7 @@ func spawn_boss():
 	boss_spawn.name="Boss"
 	print("Boss spawned")
 	print(boss_spawn.hp)
+	is_there_boss = true
 	
 
 func update_dice_position():
@@ -133,11 +136,13 @@ func _on_attack_buttton_button_down() -> void:
 func _on_reroll_button_button_down() -> void:
 	reroll()
 func boss_defeated():
+	is_there_boss = false	
 	boss_defeated_signal.emit()
 	var battle_win_instance = battle_win.instantiate()
 	battle_win_instance.name = "battle_win_instance"
 	$".".add_child(battle_win_instance)
 	print("Boss defeated")
+	$Boss.queue_free()
 	
 func boss_not_defeated():
 	print("Boss not defeated")
