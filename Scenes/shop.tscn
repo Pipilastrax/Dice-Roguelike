@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://fh5kgpxgi3hw"]
+[gd_scene load_steps=2 format=3 uid="uid://fh5kgpxgi3hw"]
+
+[ext_resource type="Script" uid="uid://dt5g623sywwsx" path="res://Scripts/shop.gd" id="1_a0mxf"]
 
 [node name="Shop" type="Node2D"]
+script = ExtResource("1_a0mxf")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 941.0
+offset_top = 547.0
+offset_right = 1107.0
+offset_bottom = 616.0
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 18.0
+offset_right = 139.0
+offset_bottom = 49.0
+text = "NEXT STAGE"
+
+[connection signal="button_down" from="Panel/Button" to="." method="_on_button_button_down"]

@@ -7,12 +7,14 @@ var stage :int = 1
 func	 _ready() -> void:
 	#battle_win.goto_shop.connect(_on_battle_win_goto_shop)
 	main_menu.play.connect(_on_play_button_pressed)
+	shop.next_stage_button.connect(_on_next_stage_button_pressed)
 	#hide everything except the main menu
 	playing_table_hide()
 	shop_hide()
 			
 #when boss defeated hide the playing table
 func _on_playing_table_boss_defeated_signal() -> void:
+	Global.stage += 1
 	#TODO Animation betwwn scenes
 	playing_table_hide()
 	shop_show()
@@ -24,6 +26,10 @@ func _on_play_button_pressed():
 			node.hide()
 	playing_table_show()
 	
+func _on_next_stage_button_pressed():
+	playing_table.prepare_next_stage()
+	shop_hide()
+	playing_table_show()
 	
 	
 

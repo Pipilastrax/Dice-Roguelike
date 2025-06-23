@@ -24,8 +24,6 @@ func _ready() -> void:
 	spawn_dice()
 	spawn_boss()
 	
-	
-	
 
 func _process(delta: float) -> void:
 	#update the score and stats into the score tag
@@ -38,7 +36,13 @@ func _process(delta: float) -> void:
 	if $Player.attacks < 1:
 		attack_button.disabled = true
 		roll_button.disabled = true
-	
+
+
+func	prepare_next_stage():
+	$Player.rerolls = $Player.o_rerolls
+	$Player.attacks = $Player.o_attacks
+	spawn_boss()
+	$HUD/Panel/Roll_button.disabled = false
 	
 #clicking of roll buton rolls the dice and adds the total of each dice 
 func _on_roll_button_button_down() -> void:
@@ -111,7 +115,6 @@ func spawn_boss():
 	$".".add_child(boss_spawn)
 	boss_spawn.name="Boss"
 	print("Boss spawned")
-	print(boss_spawn.hp)
 	is_there_boss = true
 	
 
@@ -135,12 +138,18 @@ func _on_attack_buttton_button_down() -> void:
 		boss_not_defeated()
 func _on_reroll_button_button_down() -> void:
 	reroll()
+	
 func boss_defeated():
 	is_there_boss = false	
 	boss_defeated_signal.emit()
-	var battle_win_instance = battle_win.instantiate()
-	battle_win_instance.name = "battle_win_instance"
-	$".".add_child(battle_win_instance)
+	##This used to spawn an extra screen before the shop but it proved tricky
+	##to implement so will not use it anymore
+	##
+	## xd
+	##@deprecated:
+	#var battle_win_instance = battle_win.instantiate()
+	#battle_win_instance.name = "battle_win_instance"
+	#$".".add_child(battle_win_instance)
 	print("Boss defeated")
 	$Boss.queue_free()
 	
