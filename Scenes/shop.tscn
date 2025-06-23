@@ -19,4 +19,19 @@ offset_right = 139.0
 offset_bottom = 49.0
 text = "NEXT STAGE"
 
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 29.0
+offset_top = 24.0
+offset_right = 134.0
+offset_bottom = 193.0
+
+[node name="stats_label" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 95.0
+offset_bottom = 62.0
+text = "your stats:
+you have"
+
 [connection signal="button_down" from="Panel/Button" to="." method="_on_button_button_down"]

@@ -33,7 +33,11 @@ func _on_next_stage_button_pressed():
 	
 	
 
-################TRANSITIONS################
+##Shows the playing table and all of its children
+##
+##It's done this way bc i have no idea why some stuff will
+##not show or hide if i just do [code]playing_table.show()[/code]
+##, same applies for all of the other show and hide functions
 func playing_table_show():
 	playing_table.show()
 	for node in playing_table.get_children():

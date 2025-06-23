@@ -117,7 +117,10 @@ func spawn_boss():
 	print("Boss spawned")
 	is_there_boss = true
 	
-
+##Updates the position of dice back to the starting one,
+## Right now its not used for anything xd
+##
+##@experimental:
 func update_dice_position():
 	var i = 0
 	var player = get_node("Player")
@@ -153,5 +156,8 @@ func boss_defeated():
 	print("Boss defeated")
 	$Boss.queue_free()
 	
+##TODO Boss not defeated funcion right now doesnt do anything
+##
+##@experimental:
 func boss_not_defeated():
 	print("Boss not defeated")
