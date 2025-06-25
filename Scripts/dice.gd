@@ -9,7 +9,6 @@ func _ready() -> void:
 	$AnimatedSprite2D.animation = "default"
 	$AnimatedSprite2D.frame=mindice - 1
 	
-	
 func roll():
 	reroll = false
 	value = randi_range(mindice,maxdice)
@@ -26,8 +25,7 @@ func select():
 	$AnimatedSprite2D.animation = "selected"
 	$AnimatedSprite2D.frame = value - 1
 	$select_sound.play()
-	
-	
+
 func unselect():
 	reroll = false
 	$AnimatedSprite2D.animation = "default"
@@ -43,7 +41,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			select()
 		await get_tree().create_timer(0.3).timeout
 		$Area2D.show()
-		
 
 
 #movement and sound of the dice when hovered
