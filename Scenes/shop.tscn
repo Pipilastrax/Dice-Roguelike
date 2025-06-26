@@ -34,4 +34,28 @@ offset_bottom = 62.0
 text = "your stats:
 you have"
 
+[node name="slot1" type="Panel" parent="."]
+offset_left = 207.0
+offset_top = 183.0
+offset_right = 358.0
+offset_bottom = 457.0
+
+[node name="slot2" type="Panel" parent="."]
+offset_left = 418.0
+offset_top = 182.0
+offset_right = 569.0
+offset_bottom = 456.0
+
+[node name="slot3" type="Panel" parent="."]
+offset_left = 615.0
+offset_top = 185.0
+offset_right = 766.0
+offset_bottom = 459.0
+
+[node name="trinket_shop" type="Panel" parent="."]
+offset_left = 904.0
+offset_top = 188.0
+offset_right = 1055.0
+offset_bottom = 462.0
+
 [connection signal="button_down" from="Panel/Button" to="." method="_on_button_button_down"]

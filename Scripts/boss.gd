@@ -41,11 +41,6 @@ func _ready() -> void:
 		hp += 20
 	boss_namer()
 	
-	
-	
-func _process(delta: float) -> void:
-	pass
-
 
 func boss_namer():
 	boss_name = boss_first_names[randi() % boss_first_names.size()] + " el " + boss_last_names[randi() % boss_last_names.size()]
