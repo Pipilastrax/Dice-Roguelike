@@ -30,15 +30,16 @@ var boss_last_names =[
 func _ready() -> void:
 	hp = 20 * Global.stage
 	var diff = difficulty()
-	print("This boss is " + diff)
-	if diff =="Hard":
-		hp += 15
-	elif diff == "Medium":
-		hp += 10
-	elif diff == "EZ":
-		hp += 5
-	elif diff == "ULTRA":
-		hp += 20
+	if Global.stage != 1:
+		print("This boss is " + diff)
+		if diff =="Hard":
+			hp += 15
+		elif diff == "Medium":
+			hp += 10
+		elif diff == "EZ":
+			hp += 5
+		elif diff == "ULTRA":
+			hp += 20
 	boss_namer()
 	
 
