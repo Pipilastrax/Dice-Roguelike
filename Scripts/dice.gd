@@ -1,8 +1,8 @@
 extends Node2D
 var value :int
 var reroll :bool = false
-var mindice :int
-var maxdice :int
+var mindice :int = 1
+var maxdice :int = 6
 
 func _ready() -> void:
 	$Area2D.hide()

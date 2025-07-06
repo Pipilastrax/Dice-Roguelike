@@ -94,6 +94,7 @@ func scoring():
 func damage():
 	$Player.attacks -= 1
 	$Boss.hp = $Boss.hp - total_score
+	
 	print("Attacked")
 	print("Boss hp is "+ str($Boss.hp))
 
