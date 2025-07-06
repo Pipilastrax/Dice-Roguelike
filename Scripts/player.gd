@@ -1,4 +1,5 @@
 extends Node2D
+const STARTING_DICE = 3
 var maxdice = 7
 @export var dice :int 
 var rerolls :int

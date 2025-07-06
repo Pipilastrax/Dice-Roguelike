@@ -25,7 +25,7 @@ func _ready() -> void:
 	spawn_boss()
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#update the score and stats into the score tag
 	if is_there_boss:
 		$HUD/Boss_stats/Boss_name.text = $Boss.boss_name
@@ -65,7 +65,6 @@ func _on_roll_button_button_down() -> void:
 	for node in $Player.get_children():
 		if node.is_in_group("Dice"):
 			node.get_node("Area2D").show()	
-	update_dice_position()
 	roll_button.disabled = false
 
 func reroll():
@@ -100,7 +99,7 @@ func damage():
 
 func spawn_dice():
 	var i = 0
-	for n in get_node("Player").dice:
+	for n in get_node("Player").STARTING_DICE:
 		var new_dice = dice.instantiate()
 		get_node("Player").add_child(new_dice)
 		new_dice.position.x = 200 + (80*i)
@@ -129,6 +128,8 @@ func update_dice_position():
 			node.position.x = 200 + (80*i)
 			node.position.y = 600
 			i+=1
+			if node.has_method("reset"):
+				node.reset()
 
 func _on_attack_buttton_button_down() -> void:
 	attack_button.disabled = true

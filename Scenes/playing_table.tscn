@@ -30,6 +30,7 @@ offset_left = 33.0
 offset_top = 152.0
 offset_right = 91.0
 offset_bottom = 183.0
+mouse_default_cursor_shape = 2
 text = "Roll"
 
 [node name="Reroll_button" type="Button" parent="HUD/Panel"]
@@ -38,6 +39,7 @@ offset_left = 33.0
 offset_top = 152.0
 offset_right = 90.0
 offset_bottom = 183.0
+mouse_default_cursor_shape = 2
 text = "Reroll"
 
 [node name="Attacks_label" type="Label" parent="HUD/Panel"]
@@ -91,6 +93,7 @@ offset_left = 26.0
 offset_top = 5.0
 offset_right = 94.0
 offset_bottom = 36.0
+mouse_default_cursor_shape = 2
 text = "ATTACK"
 
 [node name="Boss_stats" type="Panel" parent="HUD"]

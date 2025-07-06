@@ -29,6 +29,7 @@ offset_left = 50.0
 offset_top = 56.0
 offset_right = 133.0
 offset_bottom = 96.0
+mouse_default_cursor_shape = 2
 text = "PLAY"
 icon = ExtResource("1_28flt")
 

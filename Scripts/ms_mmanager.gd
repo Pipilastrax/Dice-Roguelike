@@ -46,9 +46,12 @@ func playing_table_show():
 
 func playing_table_hide():
 	#$Playing_table.hide()
+	if $Playing_table.has_method("update_dice_position"):
+		$Playing_table.update_dice_position()
 	for node in $Playing_table.get_children():
 		if node.has_method("hide"):
 			node.hide()
+			
 			
 func main_menu_hide():
 	main_menu.hide()
