@@ -3,6 +3,7 @@ var value :int
 var reroll :bool = false
 var mindice :int = 1
 var maxdice :int = 6
+var originalpos :Vector2
 
 func _ready() -> void:
 	$Area2D.hide()

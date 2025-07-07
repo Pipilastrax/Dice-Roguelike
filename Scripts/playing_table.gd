@@ -93,10 +93,13 @@ func scoring():
 	
 func damage():
 	$Player.attacks -= 1
-	$Boss.hp = $Boss.hp - total_score
 	
+	if $Player.has_method("dice_move_for_attack"):
+		await $Player.dice_move_for_attack()
 	print("Attacked")
+	$Boss.hp = $Boss.hp - total_score
 	print("Boss hp is "+ str($Boss.hp))
+	
 
 func spawn_dice():
 	var i = 0
@@ -107,6 +110,7 @@ func spawn_dice():
 		new_dice.position.y = 600
 		new_dice.mindice = 1
 		new_dice.maxdice = 6
+		new_dice.originalpos = new_dice.position
 		i+=1
 		print("added dice")
 
@@ -159,7 +163,7 @@ func boss_defeated():
 	$Boss.queue_free()
 	
 ##TODO Boss not defeated funcion right now doesnt do anything
-##
+##hehe
 ##@experimental:
 func boss_not_defeated():
 	print("Boss not defeated")
