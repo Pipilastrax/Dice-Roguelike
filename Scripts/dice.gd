@@ -1,9 +1,12 @@
-extends Node2D
+class_name Dice extends Node2D
+var dicename :String
 var value :int
 var reroll :bool = false
 var mindice :int = 1
 var maxdice :int = 6
 var originalpos :Vector2
+var cost : int
+
 
 func _ready() -> void:
 	$Area2D.hide()
