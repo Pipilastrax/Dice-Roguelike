@@ -1,5 +1,7 @@
 extends Node2D
-
+var slot1 :int
+var slot2 :int
+var slot3 :int
 signal next_stage_button
 var all_dice_dict :Dictionary = {
 	0:{
@@ -23,4 +25,9 @@ func _on_button_button_down() -> void:
 	next_stage_button.emit()
 
 func store_populator():
-	pass
+	slot1 = randi() % all_dice_dict.size()
+	slot2 = randi() % all_dice_dict.size()
+	slot3 = randi() % all_dice_dict.size()
+	
+	
+	
