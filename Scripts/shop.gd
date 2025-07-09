@@ -18,16 +18,20 @@ var all_dice_dict :Dictionary = {
 		"Flavor": "Its Glitched",
 		"Path":"res://Scenes/glitched_dice.tscn"}
 }
+
+func _init() -> void:
+	pass
+	
 func _process(_delta: float) -> void:
 	$Panel2/stats_label.text = "Your stats:\n You have"
 
 func _on_button_button_down() -> void:
 	next_stage_button.emit()
 
+##Store populator is called from the mms manager to populate the shop with items to buy
 func store_populator():
 	slot1 = randi() % all_dice_dict.size()
 	slot2 = randi() % all_dice_dict.size()
 	slot3 = randi() % all_dice_dict.size()
-	
-	
+	$slot1/item_name.text = all_dice_dict[slot1].get("Name")
 	
