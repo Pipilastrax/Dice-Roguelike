@@ -1,6 +1,7 @@
 extends Node2D
 var hp :int
 var boss_name
+var diff: String
 var boss_first_names = [
 "Pipi",
 "Gavo",
@@ -29,8 +30,10 @@ var boss_last_names =[
 ]
 func _ready() -> void:
 	hp = 20 * Global.stage
-	var diff = difficulty()
-	if Global.stage != 1:
+	diff = difficulty()
+	if Global.stage == 1:
+		diff = "Medium"
+	elif Global.stage > 1:
 		print("This boss is " + diff)
 		if diff =="Hard":
 			hp += 15
@@ -62,5 +65,5 @@ func difficulty():
 		"ULTRA"
 		
 	]
-	var diff: String = diffdict[rng]
-	return diff
+	var diffans: String = diffdict[rng]
+	return diffans

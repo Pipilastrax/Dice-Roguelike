@@ -162,3 +162,5 @@ vertical_alignment = 1
 
 [connection signal="button_down" from="Panel/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="slot1/buy_button" to="." method="_buy_button1_down"]
+[connection signal="button_down" from="slot2/buy_button" to="." method="_buy_button2_down"]
+[connection signal="button_down" from="slot3/buy_button" to="." method="_on_buy_button_button_down"]

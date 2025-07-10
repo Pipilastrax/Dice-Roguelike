@@ -10,6 +10,7 @@ extends Node2D
 @onready var boss_hp_tag = $HUD/Boss_stats/Boss_hp
 @onready var battle_win = preload("res://Scenes/battle_win.tscn")
 @onready var boss = preload("res://Scenes/boss.tscn")
+@onready var BossNode:Node2D 
 signal boss_defeated_signal
 var is_there_boss :bool = false
 var dice = preload("res://Scenes/dice.tscn") 
@@ -23,6 +24,7 @@ func _ready() -> void:
 	attack_button.disabled = true
 	spawn_dice()
 	spawn_boss()
+	BossNode = self.get_tree().get_first_node_in_group("Boss")
 	
 
 func _process(_delta: float) -> void:
@@ -42,6 +44,7 @@ func	prepare_next_stage():
 	$Player.rerolls = $Player.o_rerolls
 	$Player.attacks = $Player.o_attacks
 	spawn_boss()
+	BossNode = self.get_tree().get_first_node_in_group("Boss")
 	$HUD/Panel/Roll_button.disabled = false
 	
 #clicking of roll buton rolls the dice and adds the total of each dice 
@@ -151,6 +154,16 @@ func _on_reroll_button_button_down() -> void:
 func boss_defeated():
 	is_there_boss = false	
 	boss_defeated_signal.emit()
+	$Player.chips += 25
+	match BossNode.diff:
+		"EZ":
+			pass
+		"Medium":
+			$Player.chips += 5
+		"Hard":
+			$Player.chips +=10
+		"ULTRA":
+			$Player.chips +=20
 	##This used to spawn an extra screen before the shop but it proved tricky
 	##to implement so will not use it anymore
 	##
@@ -161,6 +174,7 @@ func boss_defeated():
 	#$".".add_child(battle_win_instance)
 	print("Boss defeated")
 	$Boss.queue_free()
+	
 	
 ##TODO Boss not defeated funcion right now doesnt do anything
 ##hehe

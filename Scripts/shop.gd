@@ -32,7 +32,7 @@ func _init() -> void:
 	pass
 	
 func _process(_delta: float) -> void:
-	$Panel2/stats_label.text = "Your stats:\n You have"
+	$Panel2/stats_label.text = "Your stats:\n You have " + str(PlayerNode.chips) + " Chips"
 
 func _on_button_button_down() -> void:
 	next_stage_button.emit()
@@ -64,3 +64,12 @@ func store_populator():
 	
 func _buy_button1_down() -> void:
 	buy_dice(all_dice_dict[slot1].get("Path"))
+	PlayerNode.chips -= all_dice_dict[slot1].get("Cost")
+	
+func _buy_button2_down() -> void:
+	buy_dice(all_dice_dict[slot2].get("Path"))
+	PlayerNode.chips -= all_dice_dict[slot1].get("Cost")
+
+func _on_buy_button_button_down() -> void:
+	buy_dice(all_dice_dict[slot3].get("Path"))
+	PlayerNode.chips -= all_dice_dict[slot1].get("Cost")
