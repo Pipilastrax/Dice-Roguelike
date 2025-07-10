@@ -3,6 +3,7 @@ var stage :int = 1
 @onready var main_menu = $Main_menu
 @onready var shop = $Shop
 @onready var playing_table = $Playing_table
+
 #@onready var battle_win = $Playing_table/battle_win_instance
 func	 _ready() -> void:
 	#battle_win.goto_shop.connect(_on_battle_win_goto_shop)

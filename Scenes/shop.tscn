@@ -55,8 +55,10 @@ offset_left = -2.0
 offset_top = 132.0
 offset_right = 150.0
 offset_bottom = 177.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button" type="Button" parent="slot1"]
+[node name="buy_button" type="Button" parent="slot1"]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 228.0
@@ -85,8 +87,10 @@ offset_left = -2.0
 offset_top = 132.0
 offset_right = 150.0
 offset_bottom = 177.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button" type="Button" parent="slot2"]
+[node name="buy_button" type="Button" parent="slot2"]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 228.0
@@ -115,8 +119,10 @@ offset_left = -2.0
 offset_top = 132.0
 offset_right = 150.0
 offset_bottom = 177.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button" type="Button" parent="slot3"]
+[node name="buy_button" type="Button" parent="slot3"]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 228.0
@@ -151,5 +157,8 @@ offset_left = -2.0
 offset_top = 132.0
 offset_right = 150.0
 offset_bottom = 177.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_down" from="Panel/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="slot1/buy_button" to="." method="_buy_button1_down"]

@@ -19,5 +19,5 @@ func dice_move_for_attack():
 	for sprite in get_children():
 		if sprite.is_in_group("Dice"):
 			sprite.originalpos = sprite.position
-			tween.tween_property(sprite, "position", Vector2(580, 100), 0.2)
+			tween.tween_property(sprite, "position", Vector2(580, 100), 0.1)
 			tween.tween_property(sprite, "position", sprite.originalpos, 0.2)

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dy881f8rk178v" path="res://Scripts/player.gd" id="1_xw8pi"]
 [ext_resource type="AudioStream" uid="uid://dl8venhx8xbru" path="res://Sounds/African3.mp3" id="2_cvnsp"]
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Node2D" groups=["Player"]]
 script = ExtResource("1_xw8pi")
 
 [node name="Hit_sound" type="AudioStreamPlayer" parent="."]
