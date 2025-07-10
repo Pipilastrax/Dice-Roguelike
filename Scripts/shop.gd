@@ -5,7 +5,6 @@ var slot3 :int
 signal next_stage_button
 #TODO
 #Dictionary of all of the different dice and trinkets and their respective scene
-var dice_directory : Dictionary = {"Glitched dice": "res://Scenes/glitched_dice.tscn"}
 var all_dice_dict :Dictionary = {
 	0:{
 		"Name": "Dice",
@@ -21,7 +20,6 @@ var all_dice_dict :Dictionary = {
 		"Flavor": "Its Glitched",
 		"Path":"res://Scenes/glitched_dice.tscn"}
 }
-
 func _init() -> void:
 	pass
 	
@@ -30,8 +28,6 @@ func _process(_delta: float) -> void:
 
 func _on_button_button_down() -> void:
 	next_stage_button.emit()
-#TODO
-#Populate each slot of the shop with a dice to buy
 
 ##Store populator is called from the mms manager to populate the shop with items to buy
 func store_populator():

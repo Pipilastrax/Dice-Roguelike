@@ -69,18 +69,21 @@ offset_right = 569.0
 offset_bottom = 456.0
 
 [node name="item_name" type="Label" parent="slot2"]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 2.0
 offset_right = 152.0
 offset_bottom = 53.0
 
 [node name="item_cost" type="Label" parent="slot2"]
+layout_mode = 0
 offset_left = -2.0
 offset_top = 132.0
 offset_right = 150.0
 offset_bottom = 177.0
 
 [node name="Button" type="Button" parent="slot2"]
+layout_mode = 0
 offset_left = 32.0
 offset_top = 228.0
 offset_right = 121.0
@@ -94,18 +97,21 @@ offset_right = 766.0
 offset_bottom = 459.0
 
 [node name="item_name" type="Label" parent="slot3"]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 2.0
 offset_right = 152.0
 offset_bottom = 53.0
 
 [node name="item_cost" type="Label" parent="slot3"]
+layout_mode = 0
 offset_left = -2.0
 offset_top = 132.0
 offset_right = 150.0
 offset_bottom = 177.0
 
 [node name="Button" type="Button" parent="slot3"]
+layout_mode = 0
 offset_left = 32.0
 offset_top = 228.0
 offset_right = 121.0
@@ -119,6 +125,7 @@ offset_right = 1055.0
 offset_bottom = 462.0
 
 [node name="Button" type="Button" parent="trinket_shop"]
+layout_mode = 0
 offset_left = 32.0
 offset_top = 228.0
 offset_right = 121.0
@@ -126,12 +133,14 @@ offset_bottom = 251.0
 text = "Buy"
 
 [node name="item_name" type="Label" parent="trinket_shop"]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 2.0
 offset_right = 152.0
 offset_bottom = 53.0
 
 [node name="item_cost" type="Label" parent="trinket_shop"]
+layout_mode = 0
 offset_left = -2.0
 offset_top = 132.0
 offset_right = 150.0
