@@ -1,10 +1,30 @@
 extends Node2D
-
+var slot1 :int
+var slot2 :int
+var slot3 :int
 signal next_stage_button
 #TODO
 #Dictionary of all of the different dice and trinkets and their respective scene
 var dice_directory : Dictionary = {"Glitched dice": "res://Scenes/glitched_dice.tscn"}
+var all_dice_dict :Dictionary = {
+	0:{
+		"Name": "Dice",
+		"Cost": 20,
+		"Rarity": 1,
+		"Flavor": "Just a regular dice",
+		"Path":"res://Scenes/dice.tscn"},
+	1:{
+		"Name": "Glitched Dice",
+		"Cost": 30,
+		"Rarity": 2,
+		##TODO un mejor flavor para esto xd
+		"Flavor": "Its Glitched",
+		"Path":"res://Scenes/glitched_dice.tscn"}
+}
 
+func _init() -> void:
+	pass
+	
 func _process(_delta: float) -> void:
 	$Panel2/stats_label.text = "Your stats:\n You have"
 
@@ -12,3 +32,11 @@ func _on_button_button_down() -> void:
 	next_stage_button.emit()
 #TODO
 #Populate each slot of the shop with a dice to buy
+
+##Store populator is called from the mms manager to populate the shop with items to buy
+func store_populator():
+	slot1 = randi() % all_dice_dict.size()
+	slot2 = randi() % all_dice_dict.size()
+	slot3 = randi() % all_dice_dict.size()
+	$slot1/item_name.text = all_dice_dict[slot1].get("Name")
+	
