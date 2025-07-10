@@ -35,4 +35,6 @@ func store_populator():
 	slot2 = randi() % all_dice_dict.size()
 	slot3 = randi() % all_dice_dict.size()
 	$slot1/item_name.text = all_dice_dict[slot1].get("Name")
+	$slot2/item_name.text = all_dice_dict[slot2].get("Name")
+	$slot3/item_name.text = all_dice_dict[slot3].get("Name")
 	
