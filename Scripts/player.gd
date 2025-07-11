@@ -14,6 +14,7 @@ func _ready() -> void:
 		dice = 1
 	attacks = o_attacks
 	rerolls = o_rerolls
+
 func dice_move_for_attack():
 	var tween = create_tween()
 	for sprite in get_children():

@@ -26,7 +26,7 @@ var all_dice_dict :Dictionary = {
 		"Cost": 35,
 		"Rarity": 3,
 		"Flavor": "One of it's faces its broken",
-		"Path":"res://Scenes/glitched_dice.tscn"}
+		"Path":"res://Scenes/cracked_dice.tscn"}
 }
 func _init() -> void:
 	pass

@@ -6,7 +6,7 @@ var mindice :int = 1
 var maxdice :int = 6
 var originalpos :Vector2
 var cost : int
-
+@onready var PlayerNode:Node2D = self.get_tree().get_first_node_in_group("Player")
 
 func _ready() -> void:
 	$Area2D.hide()
@@ -18,10 +18,9 @@ func roll():
 	value = randi_range(mindice,maxdice)
 	$AnimatedSprite2D.animation = "default"
 	$AnimatedSprite2D.play()
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.3).timeout
 	$AnimatedSprite2D.stop()
 	$AnimatedSprite2D.frame = value - 1
-	print("the new value is "+ str(value))
 	
 	
 func select():
@@ -61,3 +60,16 @@ func _on_hover_mouse_exited() -> void:
 func reset():
 	$AnimatedSprite2D.animation = "default"
 	$AnimatedSprite2D.frame = 0
+	
+func buy_dice(dice:String):
+	var dicescene : PackedScene = load(str(dice))
+	var dicenode = dicescene.instantiate()
+	PlayerNode.add_child(dicenode)
+	var i = 0
+	for node in PlayerNode.get_children():
+		if node.is_in_group("Dice"):
+			node.position.x = 200 + (80*i)
+			node.position.y = 600
+			i+=1
+			if node.has_method("reset"):
+				node.reset()

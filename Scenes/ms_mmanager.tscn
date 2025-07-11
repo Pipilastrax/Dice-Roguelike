@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://msihu0cy6r64"]
+[gd_scene load_steps=6 format=3 uid="uid://msihu0cy6r64"]
 
 [ext_resource type="Script" uid="uid://owlwyuug5k4m" path="res://Scripts/ms_mmanager.gd" id="1_nq07d"]
 [ext_resource type="PackedScene" uid="uid://dn272wtcaua0q" path="res://Scenes/main_menu.tscn" id="2_2uelc"]
 [ext_resource type="PackedScene" uid="uid://brk48n8obh3mr" path="res://Scenes/playing_table.tscn" id="2_q8twt"]
 [ext_resource type="PackedScene" uid="uid://fh5kgpxgi3hw" path="res://Scenes/shop.tscn" id="3_iux1q"]
+[ext_resource type="AudioStream" uid="uid://d1cvo0js0nwgc" path="res://Sounds/bg_music.mp3" id="5_iux1q"]
 
 [node name="MSMmanager" type="Node2D"]
 script = ExtResource("1_nq07d")
@@ -13,5 +14,10 @@ script = ExtResource("1_nq07d")
 [node name="Shop" parent="." instance=ExtResource("3_iux1q")]
 
 [node name="Playing_table" parent="." instance=ExtResource("2_q8twt")]
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_iux1q")
+volume_db = -12.18
+parameters/looping = false
 
 [connection signal="boss_defeated_signal" from="Playing_table" to="." method="_on_playing_table_boss_defeated_signal"]

@@ -6,6 +6,7 @@ var stage :int = 1
 
 #@onready var battle_win = $Playing_table/battle_win_instance
 func	 _ready() -> void:
+	$BgMusic.play()
 	#battle_win.goto_shop.connect(_on_battle_win_goto_shop)
 	main_menu.play.connect(_on_play_button_pressed)
 	shop.next_stage_button.connect(_on_next_stage_button_pressed)
