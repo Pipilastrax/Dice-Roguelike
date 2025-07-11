@@ -1,2 +1,2 @@
-# DIce Roguelike
+# Dice Roguelike
  
