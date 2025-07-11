@@ -1,7 +1,21 @@
-extends Node2D
+class_name Boss extends Node2D
 var hp :int
 var boss_name
 var diff: String
+var diffdict = [
+	"EZ",
+	"EZ",
+	"EZ",
+	"Medium",
+	"Medium",
+	"Medium",
+	"Medium",
+	"Hard",
+	"Hard",
+	"Hard",
+	"ULTRA"
+	
+]
 var boss_first_names = [
 "Pipi",
 "Gavo",
@@ -50,20 +64,7 @@ func boss_namer():
 	boss_name = boss_first_names[randi() % boss_first_names.size()] + " el " + boss_last_names[randi() % boss_last_names.size()]
 	
 func difficulty():
-	var rng = randi_range(0,10)
-	var diffdict = [
-		"EZ",
-		"EZ",
-		"EZ",
-		"Medium",
-		"Medium",
-		"Medium",
-		"Medium",
-		"Hard",
-		"Hard",
-		"Hard",
-		"ULTRA"
-		
-	]
+
+	var rng = randi_range(0,diffdict.size())
 	var diffans: String = diffdict[rng]
 	return diffans

@@ -55,7 +55,6 @@ func _on_roll_button_button_down() -> void:
 	$Roll_sound.play()
 	for node in $Player.get_children():
 		if node.is_in_group("Dice"):
-			print("Rolling dice")
 			node.roll()
 			await get_tree().create_timer(0.3).timeout
 	#Hide roll button and await for rerolls
@@ -99,9 +98,7 @@ func damage():
 	
 	if $Player.has_method("dice_move_for_attack"):
 		await $Player.dice_move_for_attack()
-	print("Attacked")
 	$Boss.hp = $Boss.hp - total_score
-	print("Boss hp is "+ str($Boss.hp))
 	
 
 func spawn_dice():
@@ -115,13 +112,11 @@ func spawn_dice():
 		new_dice.maxdice = 6
 		new_dice.originalpos = new_dice.position
 		i+=1
-		print("added dice")
 
 func spawn_boss():
 	var boss_spawn = boss.instantiate()
 	$".".add_child(boss_spawn)
 	boss_spawn.name="Boss"
-	print("Boss spawned")
 	is_there_boss = true
 	
 ##Updates the position of dice back to the starting one,
