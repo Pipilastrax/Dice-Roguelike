@@ -7,6 +7,7 @@ func roll():
 	value = randi_range(mindice,maxdice)
 	#rerolls if value is 2 or 1
 	if value < 3:
+		print("Glitched Dice REROLLED")
 		value = randi_range(mindice,maxdice)
 
 	$AnimatedSprite2D.animation = "default"

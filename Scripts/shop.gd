@@ -2,6 +2,7 @@ extends Node2D
 var slot1 :int
 var slot2 :int
 var slot3 :int
+#TODO add trinket slot when its implemented
 @onready var PlayerNode:Node2D = self.get_tree().get_first_node_in_group("Player")
 signal next_stage_button
 #TODO
@@ -24,7 +25,6 @@ var all_dice_dict :Dictionary = {
 		"Name": "Cracked Dice",
 		"Cost": 35,
 		"Rarity": 3,
-		##TODO un mejor flavor para esto xd
 		"Flavor": "One of it's faces its broken",
 		"Path":"res://Scenes/glitched_dice.tscn"}
 }
@@ -33,6 +33,7 @@ func _init() -> void:
 	
 func _process(_delta: float) -> void:
 	$Panel2/stats_label.text = "Your stats:\n You have " + str(PlayerNode.chips) + " Chips"
+	update_buttons()
 
 func _on_button_button_down() -> void:
 	next_stage_button.emit()
@@ -61,15 +62,30 @@ func store_populator():
 	$slot1/item_cost.text = "$ " + str(all_dice_dict[slot1].get("Cost"))
 	$slot2/item_cost.text = "$ " + str(all_dice_dict[slot2].get("Cost"))
 	$slot3/item_cost.text = "$ " + str(all_dice_dict[slot3].get("Cost"))
+		
+			
 	
 func _buy_button1_down() -> void:
 	buy_dice(all_dice_dict[slot1].get("Path"))
 	PlayerNode.chips -= all_dice_dict[slot1].get("Cost")
-	
 func _buy_button2_down() -> void:
 	buy_dice(all_dice_dict[slot2].get("Path"))
 	PlayerNode.chips -= all_dice_dict[slot1].get("Cost")
-
 func _on_buy_button_button_down() -> void:
 	buy_dice(all_dice_dict[slot3].get("Path"))
 	PlayerNode.chips -= all_dice_dict[slot1].get("Cost")
+
+
+func update_buttons():
+	if PlayerNode.chips < all_dice_dict[slot1].get("Cost"):
+		$slot1/buy_button.disabled = true
+	else:
+		$slot1/buy_button.disabled = false
+	if PlayerNode.chips < all_dice_dict[slot2].get("Cost"):
+		$slot2/buy_button.disabled = true
+	else:
+		$slot2/buy_button.disabled = false
+	if PlayerNode.chips < all_dice_dict[slot3].get("Cost"):
+		$slot3/buy_button.disabled = true
+	else:
+		$slot3/buy_button.disabled = false
