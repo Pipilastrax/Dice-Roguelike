@@ -97,7 +97,7 @@ func damage():
 	$Player.attacks -= 1
 	
 	if $Player.has_method("dice_move_for_attack"):
-		await $Player.dice_move_for_attack()
+		$Player.dice_move_for_attack()
 	$Boss.hp = $Boss.hp - total_score
 	
 
@@ -143,6 +143,7 @@ func _on_attack_buttton_button_down() -> void:
 		boss_defeated()
 	if $Player.rerolls < 1 && $Boss.hp > 0:
 		boss_not_defeated()
+
 func _on_reroll_button_button_down() -> void:
 	reroll()
 	

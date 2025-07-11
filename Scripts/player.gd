@@ -7,6 +7,7 @@ var rerolls :int
 var attacks : int
 @export var o_rerolls :int = 3
 @export var o_attacks	:int = 3
+signal animationfinished
 func _ready() -> void:
 	attacks = o_attacks
 	rerolls = o_rerolls
@@ -18,6 +19,7 @@ func dice_move_for_attack():
 			sprite.originalpos = sprite.position
 			tween.tween_property(sprite, "position", Vector2(580, 100), 0.1)
 			tween.tween_property(sprite, "position", sprite.originalpos, 0.2)
+			animationfinished.emit()
 
 func count_dice():
 	var dice_count : int = 0
