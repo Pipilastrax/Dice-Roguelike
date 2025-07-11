@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://cqm38cn857s61"]
 
-[ext_resource type="Script" uid="uid://ccx7o2x5kqgf0" path="res://Scenes/cracked_dice.gd" id="1_m5nlh"]
+[ext_resource type="Script" uid="uid://ccx7o2x5kqgf0" path="res://Scripts/cracked_dice.gd" id="1_m5nlh"]
 [ext_resource type="Texture2D" uid="uid://d3snbhj4bjb6l" path="res://Sprites/diceWhite_border.png" id="2_jhyw1"]
 [ext_resource type="Texture2D" uid="uid://b7244tn0qq4w4" path="res://Sprites/diceRed_border.png" id="3_kjhn4"]
 [ext_resource type="AudioStream" uid="uid://dl8venhx8xbru" path="res://Sounds/African3.mp3" id="4_tosvf"]

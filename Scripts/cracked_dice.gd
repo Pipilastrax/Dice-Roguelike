@@ -8,6 +8,7 @@ func roll():
 	super()
 	if value == crack:
 		value = value*2
+	break_dice()
 #sometimes this dice will break and spawn two normal dice
 func break_dice():
 	if randi() % 5 == 1:

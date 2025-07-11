@@ -22,8 +22,8 @@ text = "NEXT STAGE"
 [node name="Panel2" type="Panel" parent="."]
 offset_left = 29.0
 offset_top = 24.0
-offset_right = 134.0
-offset_bottom = 193.0
+offset_right = 255.0
+offset_bottom = 161.0
 
 [node name="stats_label" type="Label" parent="Panel2"]
 layout_mode = 0

@@ -26,13 +26,19 @@ var all_dice_dict :Dictionary = {
 		"Cost": 35,
 		"Rarity": 3,
 		"Flavor": "One of it's faces its broken",
+		"Path":"res://Scenes/cracked_dice.tscn"},
+	3:{
+		"Name": "D20",
+		"Cost": 50,
+		"Rarity": 5,
+		"Flavor": "Critical hit!",
 		"Path":"res://Scenes/cracked_dice.tscn"}
 }
 func _init() -> void:
 	pass
 	
 func _process(_delta: float) -> void:
-	$Panel2/stats_label.text = "Your stats:\n You have " + str(PlayerNode.chips) + " Chips"
+	$Panel2/stats_label.text = "Your stats:\n You have ¢" + str(PlayerNode.chips) + "\nYou have " + str(PlayerNode.count_dice()) + " Dice"
 	update_buttons()
 
 func _on_button_button_down() -> void:
@@ -59,9 +65,9 @@ func store_populator():
 	$slot1/item_name.text = all_dice_dict[slot1].get("Name")
 	$slot2/item_name.text = all_dice_dict[slot2].get("Name")
 	$slot3/item_name.text = all_dice_dict[slot3].get("Name")
-	$slot1/item_cost.text = "$ " + str(all_dice_dict[slot1].get("Cost"))
-	$slot2/item_cost.text = "$ " + str(all_dice_dict[slot2].get("Cost"))
-	$slot3/item_cost.text = "$ " + str(all_dice_dict[slot3].get("Cost"))
+	$slot1/item_cost.text = "¢ " + str(all_dice_dict[slot1].get("Cost"))
+	$slot2/item_cost.text = "¢ " + str(all_dice_dict[slot2].get("Cost"))
+	$slot3/item_cost.text = "¢ " + str(all_dice_dict[slot3].get("Cost"))
 		
 			
 	
@@ -70,22 +76,23 @@ func _buy_button1_down() -> void:
 	PlayerNode.chips -= all_dice_dict[slot1].get("Cost")
 func _buy_button2_down() -> void:
 	buy_dice(all_dice_dict[slot2].get("Path"))
-	PlayerNode.chips -= all_dice_dict[slot1].get("Cost")
+	PlayerNode.chips -= all_dice_dict[slot2].get("Cost")
 func _on_buy_button_button_down() -> void:
 	buy_dice(all_dice_dict[slot3].get("Path"))
-	PlayerNode.chips -= all_dice_dict[slot1].get("Cost")
+	PlayerNode.chips -= all_dice_dict[slot3].get("Cost")
 
 
 func update_buttons():
-	if PlayerNode.chips < all_dice_dict[slot1].get("Cost"):
+	var dice_count = PlayerNode.count_dice()
+	if PlayerNode.chips < all_dice_dict[slot1].get("Cost") || dice_count >= 10:
 		$slot1/buy_button.disabled = true
 	else:
 		$slot1/buy_button.disabled = false
-	if PlayerNode.chips < all_dice_dict[slot2].get("Cost"):
+	if PlayerNode.chips < all_dice_dict[slot2].get("Cost") || dice_count >= 10:
 		$slot2/buy_button.disabled = true
 	else:
 		$slot2/buy_button.disabled = false
-	if PlayerNode.chips < all_dice_dict[slot3].get("Cost"):
+	if PlayerNode.chips < all_dice_dict[slot3].get("Cost") || dice_count >= 10:
 		$slot3/buy_button.disabled = true
 	else:
 		$slot3/buy_button.disabled = false
