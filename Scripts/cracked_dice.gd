@@ -13,6 +13,7 @@ func roll():
 func break_dice():
 	if randi() % 5 == 1:
 		print("DICE BROKEN")
+		#TODO gotta fix the buy dice func for this dice, as it resets all of the dices faces when it breaks
 		buy_dice("res://Scenes/dice.tscn")
 		buy_dice("res://Scenes/dice.tscn")
 		queue_free()
