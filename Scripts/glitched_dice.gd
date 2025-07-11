@@ -9,6 +9,10 @@ func roll():
 	if value < 3:
 		print("Glitched Dice REROLLED")
 		value = randi_range(mindice,maxdice)
+		$AnimatedSprite2D.animation = "glitch"
+		$AnimatedSprite2D.play()
+		await $AnimatedSprite2D.animation_finished
+		
 
 	$AnimatedSprite2D.animation = "default"
 	$AnimatedSprite2D.play()

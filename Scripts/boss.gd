@@ -36,13 +36,13 @@ func _ready() -> void:
 	elif Global.stage > 1:
 		print("This boss is " + diff)
 		if diff =="Hard":
-			hp += 15
-		elif diff == "Medium":
 			hp += 10
-		elif diff == "EZ":
+		elif diff == "Medium":
 			hp += 5
+		elif diff == "EZ":
+			hp += 0
 		elif diff == "ULTRA":
-			hp += 20
+			hp += 15
 	boss_namer()
 	
 
