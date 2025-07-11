@@ -184,6 +184,17 @@ frame_progress = 1.0
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_gers8")
 
+[node name="Popup" type="Control" parent="hover"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -34.0
+offset_top = -30.0
+offset_right = 33.0
+offset_bottom = 31.0
+tooltip_text = "This is a Glitched dice
+"
+mouse_filter = 1
+
 [node name="hover_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_pdmij")
 volume_db = -50.0

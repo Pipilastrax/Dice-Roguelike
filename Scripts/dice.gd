@@ -51,6 +51,7 @@ func _on_hover_mouse_entered() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property($AnimatedSprite2D,"rotation",0.2,0.1)
 	$hover_sound.play()
+	
 
 
 func _on_hover_mouse_exited() -> void:

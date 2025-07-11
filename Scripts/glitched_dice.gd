@@ -8,6 +8,7 @@ func roll():
 	#rerolls if value is 2 or 1
 	if value < 3:
 		print("Glitched Dice REROLLED")
+		Global.game_print("Dice Glitched!", self.position, 20, 2)
 		value = randi_range(mindice,maxdice)
 		$AnimatedSprite2D.animation = "glitch"
 		$AnimatedSprite2D.play()

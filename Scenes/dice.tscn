@@ -124,6 +124,17 @@ sprite_frames = SubResource("SpriteFrames_1np4b")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_gers8")
 
+[node name="Popup" type="Control" parent="hover"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -34.0
+offset_top = -30.0
+offset_right = 33.0
+offset_bottom = 31.0
+tooltip_text = "This is a regular dice
+"
+mouse_filter = 1
+
 [node name="hover_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_b27ex")
 volume_db = -50.0

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://fh5kgpxgi3hw" path="res://Scenes/shop.tscn" id="3_iux1q"]
 [ext_resource type="AudioStream" uid="uid://d1cvo0js0nwgc" path="res://Sounds/bg_music.mp3" id="5_iux1q"]
 
-[node name="MSMmanager" type="Node2D"]
+[node name="MSMmanager" type="Node2D" groups=["mmsmanager"]]
 script = ExtResource("1_nq07d")
 
 [node name="Main_menu" parent="." instance=ExtResource("2_2uelc")]
