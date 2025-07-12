@@ -21,6 +21,7 @@ func _on_playing_table_boss_defeated_signal() -> void:
 	playing_table_hide()
 	shop_show()
 	$Shop.store_populator()
+	
 	#battle_win.goto_shop.connect(_on_battle_win_goto_shop)
 
 func _on_play_button_pressed():
@@ -30,9 +31,9 @@ func _on_play_button_pressed():
 	playing_table_show()
 	
 func _on_next_stage_button_pressed():
-	playing_table.prepare_next_stage()
 	shop_hide()
 	playing_table_show()
+	playing_table.prepare_next_stage()
 	
 	
 

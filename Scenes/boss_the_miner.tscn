@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://77ani400cdun"]
+
+[ext_resource type="Script" uid="uid://ccirb0d2na1a3" path="res://Scripts/boss_the_miner.gd" id="1_l471g"]
+
+[node name="BossTheMiner" type="Node2D" groups=["Boss"]]
+script = ExtResource("1_l471g")

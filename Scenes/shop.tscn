@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dt5g623sywwsx" path="res://Scripts/shop.gd" id="1_a0mxf"]
 
-[node name="Shop" type="Node2D"]
+[node name="Shop" type="Node2D" groups=["Shop"]]
 script = ExtResource("1_a0mxf")
 
 [node name="Panel" type="Panel" parent="."]

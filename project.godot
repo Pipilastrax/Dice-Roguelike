@@ -30,6 +30,7 @@ Dice=""
 Player=""
 Boss=""
 mmsmanager=""
+Shop=""
 
 [gui]
 

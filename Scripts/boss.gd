@@ -2,6 +2,7 @@ class_name Boss extends Node2D
 var hp :int
 var boss_name: String
 var diff: String
+@onready var player_node = get_tree().get_first_node_in_group("Player")
 var diffdict = [
 	"EZ",
 	"EZ",
