@@ -80,8 +80,6 @@ func reroll():
 			if node.reroll:
 				node.roll()
 	scoring()	
-	
-	
 	if $Player.rerolls > 0:
 		reroll_button.disabled = false
 	else:
@@ -149,7 +147,7 @@ func _on_reroll_button_button_down() -> void:
 	
 func boss_defeated():
 	is_there_boss = false	
-	$Player.chips += 5* $Player.rerolls
+	$Player.chips += 5* $Player.attacks
 	boss_defeated_signal.emit()
 	$Player.chips += 25
 	match BossNode.diff:
