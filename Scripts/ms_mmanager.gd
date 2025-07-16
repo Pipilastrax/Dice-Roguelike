@@ -10,6 +10,7 @@ func	 _ready() -> void:
 	#battle_win.goto_shop.connect(_on_battle_win_goto_shop)
 	main_menu.play.connect(_on_play_button_pressed)
 	shop.next_stage_button.connect(_on_next_stage_button_pressed)
+	playing_table.boss_not_defeated_signal.connect(_boss_not_defeated)
 	#hide everything except the main menu
 	playing_table_hide()
 	shop_hide()
@@ -34,6 +35,10 @@ func _on_next_stage_button_pressed():
 	shop_hide()
 	playing_table_show()
 	playing_table.prepare_next_stage()
+	
+func _boss_not_defeated():
+	playing_table.you_lose()
+	pass
 	
 	
 

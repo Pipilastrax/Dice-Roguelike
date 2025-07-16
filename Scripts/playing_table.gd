@@ -12,6 +12,7 @@ extends Node2D
 @onready var boss = preload("res://Scenes/boss.tscn")
 @onready var BossNode:Node2D 
 signal boss_defeated_signal
+signal boss_not_defeated_signal
 var is_there_boss :bool = false
 var dice = preload("res://Scenes/dice.tscn") 
 var boss_hp : float
@@ -139,7 +140,7 @@ func _on_attack_buttton_button_down() -> void:
 	reroll_button.hide()
 	if $Boss.hp <= 0:
 		boss_defeated()
-	if $Player.rerolls < 1 && $Boss.hp > 0:
+	if $Player.attacks < 1 && $Boss.hp > 0:
 		boss_not_defeated()
 
 func _on_reroll_button_button_down() -> void:
@@ -176,3 +177,8 @@ func boss_defeated():
 ##@experimental:
 func boss_not_defeated():
 	print("Boss not defeated")
+	boss_not_defeated_signal.emit()
+	
+func you_lose():
+	pass
+	
