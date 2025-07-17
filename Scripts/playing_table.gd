@@ -40,7 +40,8 @@ func _process(_delta: float) -> void:
 		attack_button.disabled = true
 		roll_button.disabled = true
 
-
+##This function sets the player rerolls and attatcks back to his maximum and
+## also spawns a new boss
 func	prepare_next_stage():
 	$Player.rerolls = $Player.o_rerolls
 	$Player.attacks = $Player.o_attacks

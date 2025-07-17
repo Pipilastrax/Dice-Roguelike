@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://ru268axctqlh"]
+
+[ext_resource type="Script" uid="uid://bdw66xsnf4ahx" path="res://Scenes/you_lose.gd" id="1_tpxky"]
+
+[node name="you_lose" type="Node2D"]
+script = ExtResource("1_tpxky")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 303.0
+offset_top = 156.0
+offset_right = 874.0
+offset_bottom = 530.0
+
+[node name="restart" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 266.0
+offset_right = 521.0
+offset_bottom = 338.0
+text = "RESTART"
+
+[node name="main_menu" type="Button" parent="Panel"]
+offset_left = 67.0
+offset_top = 266.0
+offset_right = 254.0
+offset_bottom = 337.0
+text = "MAIN MENU"

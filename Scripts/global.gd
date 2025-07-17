@@ -1,6 +1,6 @@
 extends Node
 var stage :int = 1
-
+var highscore: int
 ##Game Print
 ##Game print function creates a label in the desired position that has the text that you pass to it,
 ## and dissapears after the desired time
