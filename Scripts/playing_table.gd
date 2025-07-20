@@ -114,6 +114,8 @@ func spawn_dice():
 		i+=1
 
 func spawn_boss():
+	roll_button.disabled = false
+	reroll_button.disabled = false
 	var boss_spawn = boss.instantiate()
 	$".".add_child(boss_spawn)
 	boss_spawn.name="Boss"
@@ -149,6 +151,7 @@ func _on_reroll_button_button_down() -> void:
 	
 func boss_defeated():
 	is_there_boss = false	
+	boss_hp_tag.text = str($Boss.hp) + " HP"
 	$Player.chips += 5* $Player.attacks
 	boss_defeated_signal.emit()
 	$Player.chips += 25
@@ -170,7 +173,10 @@ func boss_defeated():
 	#battle_win_instance.name = "battle_win_instance"
 	#$".".add_child(battle_win_instance)
 	print("Boss defeated")
+	roll_button.disabled = true
+	reroll_button.disabled = true
 	$Boss.queue_free()
+	
 	
 	
 ##TODO Boss not defeated funcion right now doesnt do anything

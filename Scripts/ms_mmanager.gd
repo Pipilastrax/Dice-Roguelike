@@ -18,10 +18,11 @@ func	 _ready() -> void:
 #when boss defeated hide the playing table
 func _on_playing_table_boss_defeated_signal() -> void:
 	Global.stage += 1
-	#TODO Animation betwwn scenes
-	playing_table_hide()
-	shop_show()
-	$Shop.store_populator()
+	var battle_win = load("res://Scenes/battle_win.tscn")
+	var battlewin_instance = battle_win.instantiate()
+	add_child(battlewin_instance)
+	battlewin_instance.goto_shop.connect(shop_from_playing_table)
+	
 	
 	#battle_win.goto_shop.connect(_on_battle_win_goto_shop)
 
@@ -85,4 +86,9 @@ func shop_show():
 	for node in shop.get_children():
 		if node.has_method("show"):
 			node.show()
+	
+func shop_from_playing_table():
+	playing_table_hide()
+	shop_show()
+	$Shop.store_populator()
 	

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ru268axctqlh"]
 
-[ext_resource type="Script" uid="uid://bdw66xsnf4ahx" path="res://Scenes/you_lose.gd" id="1_tpxky"]
+[ext_resource type="Script" uid="uid://bdw66xsnf4ahx" path="res://you_lose.gd" id="1_tpxky"]
 
 [node name="you_lose" type="Node2D"]
 script = ExtResource("1_tpxky")
@@ -20,8 +20,20 @@ offset_bottom = 338.0
 text = "RESTART"
 
 [node name="main_menu" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 67.0
 offset_top = 266.0
 offset_right = 254.0
 offset_bottom = 337.0
 text = "MAIN MENU"
+
+[node name="Label" type="Label" parent="Panel"]
+offset_left = 95.0
+offset_top = 76.0
+offset_right = 490.0
+offset_bottom = 164.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="Panel/restart" to="." method="_on_restart_button_down"]
+[connection signal="button_down" from="Panel/main_menu" to="." method="_on_main_menu_button_down"]
