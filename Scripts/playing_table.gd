@@ -187,5 +187,7 @@ func boss_not_defeated():
 	boss_not_defeated_signal.emit()
 	
 func you_lose():
-	pass
+	var lose_scene = load("res://Scenes/you_lose.tscn")
+	var lose_node = lose_scene.instantiate()
+	add_child(lose_node)
 	

@@ -4,6 +4,7 @@ var stage :int = 1
 @onready var shop = $Shop
 @onready var playing_table = $Playing_table
 
+
 #@onready var battle_win = $Playing_table/battle_win_instance
 func	 _ready() -> void:
 	$BgMusic.play()
@@ -39,6 +40,9 @@ func _on_next_stage_button_pressed():
 	
 func _boss_not_defeated():
 	playing_table.you_lose()
+	var you_lose_sign = get_tree().get_first_node_in_group("youlose")
+	you_lose_sign.restart.connect(restart_run)
+	you_lose_sign.mainmenu.connect(goto_mainmenu)
 	pass
 	
 	
@@ -91,4 +95,9 @@ func shop_from_playing_table():
 	playing_table_hide()
 	shop_show()
 	$Shop.store_populator()
-	
+
+func restart_run():
+	pass
+
+func goto_mainmenu():
+	pass

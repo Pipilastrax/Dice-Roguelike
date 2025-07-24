@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bdw66xsnf4ahx" path="res://you_lose.gd" id="1_tpxky"]
 
-[node name="you_lose" type="Node2D"]
+[node name="you_lose" type="Node2D" groups=["youlose"]]
 script = ExtResource("1_tpxky")
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = 303.0
-offset_top = 156.0
-offset_right = 874.0
-offset_bottom = 530.0
+offset_left = 299.0
+offset_top = 126.0
+offset_right = 870.0
+offset_bottom = 500.0
 
 [node name="restart" type="Button" parent="Panel"]
 layout_mode = 0
@@ -27,7 +27,8 @@ offset_right = 254.0
 offset_bottom = 337.0
 text = "MAIN MENU"
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="lose_text" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 95.0
 offset_top = 76.0
 offset_right = 490.0

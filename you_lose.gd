@@ -4,7 +4,7 @@ signal restart
 signal mainmenu
 
 func _ready() -> void:
-	pass
+	$Panel/lose_text.text = "Alto peton xd \n (Perdiste)"
 
 func _on_restart_button_down() -> void:
 	restart.emit()
