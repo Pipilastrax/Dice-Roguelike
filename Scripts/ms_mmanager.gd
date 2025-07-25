@@ -3,6 +3,8 @@ var stage :int = 1
 @onready var main_menu = $Main_menu
 @onready var shop = $Shop
 @onready var playing_table = $Playing_table
+@onready var player = get_tree().get_first_node_in_group("Player")
+@onready var boss = get_tree().get_first_node_in_group("Boss")
 
 
 #@onready var battle_win = $Playing_table/battle_win_instance
@@ -97,7 +99,20 @@ func shop_from_playing_table():
 	$Shop.store_populator()
 
 func restart_run():
-	pass
+	var boss = get_tree().get_first_node_in_group("Boss")
+	var youlose = get_tree().get_first_node_in_group("youlose")
+	for node in player.get_children():
+		if node.is_in_group("Dice"):
+			node.queue_free()
+	player.chips = 0
+	player.rerolls = player.o_rerolls
+	player.attacks = player.o_attacks
+	boss.hp = 20
+	Global.stage = 1
+	playing_table.spawn_dice()
+	boss.boss_namer()
+	youlose.queue_free()
+
 
 func goto_mainmenu():
 	pass
