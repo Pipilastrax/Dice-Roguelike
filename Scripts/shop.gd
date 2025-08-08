@@ -7,6 +7,14 @@ var slot3 :int
 signal next_stage_button
 #TODO
 #Dictionary of all of the different dice and trinkets and their respective scene
+var all_trinket_dict :Dictionary ={
+	0:{
+		"Name": "Poker Chip",
+		"Cost": 20,
+		"Rarity": 1,
+		"Flavor": "Extra Chips",
+		"Path":"res://Scenes/dice.tscn"}
+}
 var all_dice_dict :Dictionary = {
 	0:{
 		"Name": "Dice",

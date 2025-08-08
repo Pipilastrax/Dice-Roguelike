@@ -191,3 +191,6 @@ func you_lose():
 	var lose_node = lose_scene.instantiate()
 	add_child(lose_node)
 	
+func restart():
+	spawn_dice()
+	attack_button.disabled = false

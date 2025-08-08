@@ -109,7 +109,7 @@ func restart_run():
 	player.attacks = player.o_attacks
 	boss.hp = 20
 	Global.stage = 1
-	playing_table.spawn_dice()
+	playing_table.restart()
 	boss.boss_namer()
 	youlose.queue_free()
 
