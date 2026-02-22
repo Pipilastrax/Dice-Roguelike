@@ -193,4 +193,5 @@ func you_lose():
 	
 func restart():
 	spawn_dice()
+	update_dice_position()
 	attack_button.disabled = false

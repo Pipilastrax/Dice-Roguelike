@@ -1,17 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://ru268axctqlh"]
+[gd_scene format=3 uid="uid://ru268axctqlh"]
 
-[ext_resource type="Script" uid="uid://bdw66xsnf4ahx" path="res://you_lose.gd" id="1_tpxky"]
+[ext_resource type="Script" uid="uid://bdw66xsnf4ahx" path="res://Scripts/you_lose.gd" id="1_tpxky"]
 
-[node name="you_lose" type="Node2D" groups=["youlose"]]
+[node name="you_lose" type="Node2D" unique_id=877973895 groups=["youlose"]]
 script = ExtResource("1_tpxky")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=25856062]
 offset_left = 299.0
 offset_top = 126.0
 offset_right = 870.0
 offset_bottom = 500.0
 
-[node name="restart" type="Button" parent="Panel"]
+[node name="restart" type="Button" parent="Panel" unique_id=867093655]
 layout_mode = 0
 offset_left = 336.0
 offset_top = 266.0
@@ -19,7 +19,7 @@ offset_right = 521.0
 offset_bottom = 338.0
 text = "RESTART"
 
-[node name="main_menu" type="Button" parent="Panel"]
+[node name="main_menu" type="Button" parent="Panel" unique_id=1504228976]
 layout_mode = 0
 offset_left = 67.0
 offset_top = 266.0
@@ -27,7 +27,7 @@ offset_right = 254.0
 offset_bottom = 337.0
 text = "MAIN MENU"
 
-[node name="lose_text" type="Label" parent="Panel"]
+[node name="lose_text" type="Label" parent="Panel" unique_id=1054863885]
 layout_mode = 0
 offset_left = 95.0
 offset_top = 76.0

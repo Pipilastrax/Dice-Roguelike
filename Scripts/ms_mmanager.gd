@@ -33,6 +33,8 @@ func _on_play_button_pressed():
 	for node in main_menu.get_children():
 		if node.has_method("hide"):
 			node.hide()
+	boss = get_tree().get_first_node_in_group("Boss")
+	boss.boss_namer()
 	playing_table_show()
 	
 func _on_next_stage_button_pressed():
@@ -115,4 +117,20 @@ func restart_run():
 
 
 func goto_mainmenu():
-	pass
+	var boss = get_tree().get_first_node_in_group("Boss")
+	var youlose = get_tree().get_first_node_in_group("youlose")
+	for node in player.get_children():
+		if node.is_in_group("Dice"):
+			node.queue_free()
+	
+	player.chips = 0
+	player.rerolls = player.o_rerolls
+	player.attacks = player.o_attacks
+	boss.hp = 20
+	Global.stage = 1
+	main_menu_show()
+	playing_table_hide()
+	youlose.queue_free()
+	playing_table.restart()
+	playing_table.roll_button.disabled = false
+	playing_table.reroll_button.discabled = true
