@@ -2,7 +2,7 @@ extends Node2D
 var slot1 :int
 var slot2 :int
 var slot3 :int
-#TODO add trinket slot when its implemented
+var trinketslot :int
 @onready var PlayerNode:Node2D = self.get_tree().get_first_node_in_group("Player")
 signal next_stage_button
 #TODO

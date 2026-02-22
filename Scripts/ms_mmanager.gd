@@ -133,4 +133,6 @@ func goto_mainmenu():
 	youlose.queue_free()
 	playing_table.restart()
 	playing_table.roll_button.disabled = false
-	playing_table.reroll_button.discabled = true
+	playing_table.reroll_button.disabled = true
+	playing_table.total_score = 0
+	playing_table.attack_button.disabled = true
